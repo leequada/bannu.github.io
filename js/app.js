@@ -2,10 +2,11 @@ import * as THREE from './three.module.min.js';
 
 const START_DATE_ISO = '2026-04-25T00:00:00+07:00';
 
-// 9 distinct 3D formations (including 4 badass new geometric & sculptural transforms!)
+// 10 distinct 3D formations (including the 3D Swimming Fish & Sculptural 3D Heart!)
 const FORMATIONS = [
   { classes: ['cube'], zDesktop: 0, mobileDiv: 480, motion: 'spin' },
   { classes: ['cube', 'expanded'], zDesktop: -25, mobileDiv: 520, motion: 'spin' },
+  { classes: ['fish'], zDesktop: -165, mobileDiv: 690, motion: 'fish' },
   { classes: ['ring'], zDesktop: -230, mobileDiv: 680, motion: 'spin' },
   { classes: ['dodeca'], zDesktop: -150, mobileDiv: 570, motion: 'tumble' },
   { classes: ['helix'], zDesktop: -200, mobileDiv: 640, motion: 'spin' },
@@ -523,8 +524,8 @@ function applyFormation(index, withFireworks = true) {
   updateStageTransform();
 
   // Add a badass kinetic spin whoosh during transition!
-  if (f.motion === 'sway') {
-    // Snap smoothly toward front-facing after a dramatic sweep so Wings & 3D Heart face the viewer
+  if (f.motion === 'sway' || f.motion === 'fish') {
+    // Snap smoothly toward front-facing so Fish, Wings & 3D Heart face the viewer clearly
     rotY = ((rotY % 360) + 360) % 360;
     if (rotY > 180) rotY -= 360;
     spinBoost = 0;
@@ -636,11 +637,22 @@ finaleScene.addEventListener('click', (e) => {
 });
 
 function spinTick() {
+  let swimBobY = 0;
+  let swimPitchZ = 0;
+
   if (!isDragging && !isCardOpen) {
     const f = FORMATIONS[currentIdx];
     spinBoost *= 0.94;
 
-    if (f.motion === 'sway') {
+    if (f.motion === 'fish') {
+      swayPhase += 0.036;
+      const targetY = Math.sin(swayPhase) * 22;
+      const targetX = Math.cos(swayPhase * 0.65) * 8 - 2;
+      rotY += (targetY - rotY) * 0.07;
+      rotX += (targetX - rotX) * 0.07;
+      swimBobY = Math.sin(swayPhase * 0.85) * 16;
+      swimPitchZ = Math.cos(swayPhase * 0.85) * 4.5;
+    } else if (f.motion === 'sway') {
       swayPhase += 0.022;
       const targetY = Math.sin(swayPhase) * 26;
       const targetX = Math.cos(swayPhase * 0.7) * 7 - 3;
@@ -656,7 +668,7 @@ function spinTick() {
       rotX += (-6 - rotX) * 0.05;
     }
   }
-  shapeEl.style.transform = `rotateX(${rotX.toFixed(2)}deg) rotateY(${rotY.toFixed(2)}deg)`;
+  shapeEl.style.transform = `translateY(${swimBobY.toFixed(1)}px) rotateX(${rotX.toFixed(2)}deg) rotateY(${rotY.toFixed(2)}deg) rotateZ(${swimPitchZ.toFixed(2)}deg)`;
   requestAnimationFrame(spinTick);
 }
 requestAnimationFrame(spinTick);

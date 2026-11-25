@@ -336,6 +336,90 @@ body {
 #shape.heart3d > .eleven { transform: translate3d(-52px,    10px, 105px) rotateY(10deg)  scale(0.64); }
 #shape.heart3d > .twelve { transform: translate3d(52px,     10px, -105px) rotateY(-10deg) scale(0.64); }
 
+/* --- SPECIAL SURPRISE STYLE: 3D SWIMMING NEON KOI / GOLDFISH (.fish) --- */
+@keyframes fishTailUpper {
+  0%, 100% { transform: translate3d(190px, -95px, -15px) rotateY(-22deg) rotateZ(28deg) scale(0.64); }
+  50%      { transform: translate3d(190px, -95px,  28px) rotateY(22deg)  rotateZ(33deg) scale(0.64); }
+}
+
+@keyframes fishTailLower {
+  0%, 100% { transform: translate3d(190px,  95px, -15px) rotateY(-22deg) rotateZ(-28deg) scale(0.64); }
+  50%      { transform: translate3d(190px,  95px,  28px) rotateY(22deg)  rotateZ(-33deg) scale(0.64); }
+}
+
+@keyframes fishBubbles {
+  0%   { opacity: 0; transform: translate3d(-345px, 10px, 30px) scale(0.4); }
+  30%  { opacity: 0.95; }
+  100% { opacity: 0; transform: translate3d(-395px, -190px, 30px) scale(1.15); }
+}
+
+#shape.fish > .plane {
+  border-color: #00f5d4;
+  box-shadow: 0 0 28px rgba(0, 245, 212, 0.72), 0 0 48px rgba(255, 158, 0, 0.45);
+}
+
+/* Rising glowing ocean bubbles near the fish mouth */
+#shape.fish::before,
+#shape.fish::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 2.5px solid #80ffea;
+  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.9), rgba(0, 245, 212, 0.25));
+  box-shadow: 0 0 18px #00f5d4;
+  pointer-events: none;
+  animation: fishBubbles 2.4s ease-out infinite 1.2s;
+}
+#shape.fish::after {
+  width: 18px;
+  height: 18px;
+  animation-delay: 2.1s;
+}
+
+/* Cute sparkling Fish Eye on the snout tile (.one) */
+#shape.fish > .one::before {
+  content: '';
+  position: absolute;
+  left: 22%;
+  top: 46%;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 34% 34%, #ffffff 0 26%, #090214 29% 64%, #ffd166 67% 100%);
+  box-shadow: 0 0 16px #ffd166, 0 0 24px #00f5d4;
+  z-index: 4;
+  pointer-events: none;
+}
+
+/* Pointed Snout / Head (Left) */
+#shape.fish > .one    { transform: translate3d(-250px,   0px,  24px) rotateZ(45deg) scale(0.56); }
+/* Upper & Lower Head Cheeks */
+#shape.fish > .two    { transform: translate3d(-162px, -64px,  30px) rotateY(-12deg) rotateZ(45deg) scale(0.57); }
+#shape.fish > .three  { transform: translate3d(-162px,  64px,  30px) rotateY(-12deg) rotateZ(45deg) scale(0.57); }
+/* Plump 3D Mid-Body Scales */
+#shape.fish > .four   { transform: translate3d(-58px,  -88px,  22px) rotateX(12deg)  rotateZ(45deg) scale(0.58); }
+#shape.fish > .five   { transform: translate3d(-62px,    0px,  58px) rotateZ(45deg)  scale(0.62); }
+#shape.fish > .six    { transform: translate3d(-58px,   88px,  22px) rotateX(-12deg) rotateZ(45deg) scale(0.58); }
+/* Top Dorsal Fin & Bottom Ventral Fin */
+#shape.fish > .seven  { transform: translate3d(-18px, -176px, -12px) rotateZ(22deg)  scale(0.50); }
+#shape.fish > .eight  { transform: translate3d(-18px,  176px, -12px) rotateZ(-22deg) scale(0.50); }
+/* Tapering Rear Body / Narrow Tail Waist */
+#shape.fish > .nine   { transform: translate3d(48px,   -48px,  20px) rotateY(12deg)  rotateZ(45deg) scale(0.54); }
+#shape.fish > .ten    { transform: translate3d(48px,    48px,  20px) rotateY(12deg)  rotateZ(45deg) scale(0.54); }
+/* Wide Flared Forked V-Tail Fins (Wagging in 3D!) */
+#shape.fish > .eleven {
+  transform: translate3d(190px, -95px, -15px) rotateY(-22deg) rotateZ(28deg) scale(0.64);
+  animation: fishTailUpper 1.35s ease-in-out infinite 1.55s;
+}
+#shape.fish > .twelve {
+  transform: translate3d(190px,  95px, -15px) rotateY(-22deg) rotateZ(-28deg) scale(0.64);
+  animation: fishTailLower 1.35s ease-in-out infinite 1.55s;
+}
+
 /* ============================================================================
    MINIMAL SINGLE/DUAL CONTROL PILL
    ============================================================================ */
