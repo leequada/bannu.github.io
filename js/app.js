@@ -2,11 +2,11 @@ import * as THREE from './three.module.min.js';
 
 const START_DATE_ISO = '2026-04-25T00:00:00+07:00';
 
-// 10 distinct 3D formations (including the 3D Swimming Fish & Sculptural 3D Heart!)
+// 10 distinct 3D formations — Fish is index 1 (VERY FIRST click on "Đổi kiểu"!)
 const FORMATIONS = [
   { classes: ['cube'], zDesktop: 0, mobileDiv: 480, motion: 'spin' },
+  { classes: ['fish'], zDesktop: -155, mobileDiv: 740, motion: 'fish' },
   { classes: ['cube', 'expanded'], zDesktop: -25, mobileDiv: 520, motion: 'spin' },
-  { classes: ['fish'], zDesktop: -165, mobileDiv: 690, motion: 'fish' },
   { classes: ['ring'], zDesktop: -230, mobileDiv: 680, motion: 'spin' },
   { classes: ['dodeca'], zDesktop: -150, mobileDiv: 570, motion: 'tumble' },
   { classes: ['helix'], zDesktop: -200, mobileDiv: 640, motion: 'spin' },
