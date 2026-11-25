@@ -245,7 +245,7 @@ body {
 #shape.helix > .eleven { transform: rotateY(420deg) translateY(180px)  translateZ(250px) scale(0.84); }
 #shape.helix > .twelve { transform: rotateY(462deg) translateY(220px)  translateZ(250px) scale(0.84); }
 
-/* --- STYLE 5 (FINAL): ROYAL DOUBLE CROWN (.crown) --- */
+/* --- STYLE 5: ROYAL DOUBLE CROWN (.crown) --- */
 #shape.crown > .one    { transform: rotateY(0deg)   translateY(-95px) translateZ(265px) rotateX(14deg) scale(0.88); }
 #shape.crown > .two    { transform: rotateY(60deg)  translateY(-95px) translateZ(265px) rotateX(14deg) scale(0.88); }
 #shape.crown > .three  { transform: rotateY(120deg) translateY(-95px) translateZ(265px) rotateX(14deg) scale(0.88); }
@@ -258,6 +258,83 @@ body {
 #shape.crown > .ten    { transform: rotateY(210deg) translateY(95px)  translateZ(265px) rotateX(-14deg) scale(0.88); }
 #shape.crown > .eleven { transform: rotateY(270deg) translateY(95px)  translateZ(265px) rotateX(-14deg) scale(0.88); }
 #shape.crown > .twelve { transform: rotateY(330deg) translateY(95px)  translateZ(265px) rotateX(-14deg) scale(0.88); }
+
+/* --- STYLE 6: 12-FACED DIAMOND DODECAHEDRON SPHERE (.dodeca) --- */
+#shape.dodeca > .plane {
+  border-color: #72efdd;
+  box-shadow: 0 0 28px rgba(0, 245, 212, 0.58), 0 0 44px rgba(255, 42, 133, 0.32);
+}
+#shape.dodeca > .one    { transform: rotateX(90deg) translateZ(225px) scale(0.78); }
+#shape.dodeca > .two    { transform: rotateY(0deg)   rotateX(26.57deg) translateZ(225px) scale(0.78); }
+#shape.dodeca > .three  { transform: rotateY(72deg)  rotateX(26.57deg) translateZ(225px) scale(0.78); }
+#shape.dodeca > .four   { transform: rotateY(144deg) rotateX(26.57deg) translateZ(225px) scale(0.78); }
+#shape.dodeca > .five   { transform: rotateY(216deg) rotateX(26.57deg) translateZ(225px) scale(0.78); }
+#shape.dodeca > .six    { transform: rotateY(288deg) rotateX(26.57deg) translateZ(225px) scale(0.78); }
+#shape.dodeca > .seven  { transform: rotateY(36deg)  rotateX(-26.57deg) translateZ(225px) scale(0.78); }
+#shape.dodeca > .eight  { transform: rotateY(108deg) rotateX(-26.57deg) translateZ(225px) scale(0.78); }
+#shape.dodeca > .nine   { transform: rotateY(180deg) rotateX(-26.57deg) translateZ(225px) scale(0.78); }
+#shape.dodeca > .ten    { transform: rotateY(252deg) rotateX(-26.57deg) translateZ(225px) scale(0.78); }
+#shape.dodeca > .eleven { transform: rotateY(324deg) rotateX(-26.57deg) translateZ(225px) scale(0.78); }
+#shape.dodeca > .twelve { transform: rotateX(-90deg) translateZ(225px) scale(0.78); }
+
+/* --- STYLE 7: TRIPLE-AXIS ARC REACTOR GYROSCOPE (.gyro) --- */
+#shape.gyro > .plane {
+  border-color: #c77dff;
+  box-shadow: 0 0 30px rgba(155, 93, 229, 0.72), 0 0 48px rgba(0, 245, 212, 0.42);
+}
+/* Equatorial Ring */
+#shape.gyro > .one    { transform: rotateY(0deg)   translateZ(275px) scale(0.8); }
+#shape.gyro > .two    { transform: rotateY(90deg)  translateZ(275px) scale(0.8); }
+#shape.gyro > .three  { transform: rotateY(180deg) translateZ(275px) scale(0.8); }
+#shape.gyro > .four   { transform: rotateY(270deg) translateZ(275px) scale(0.8); }
+/* Tilted +58deg Orbital Ring */
+#shape.gyro > .five   { transform: rotateZ(58deg)  rotateY(45deg)  translateZ(275px) scale(0.8); }
+#shape.gyro > .six    { transform: rotateZ(58deg)  rotateY(135deg) translateZ(275px) scale(0.8); }
+#shape.gyro > .seven  { transform: rotateZ(58deg)  rotateY(225deg) translateZ(275px) scale(0.8); }
+#shape.gyro > .eight  { transform: rotateZ(58deg)  rotateY(315deg) translateZ(275px) scale(0.8); }
+/* Tilted -58deg Counter-Orbital Ring */
+#shape.gyro > .nine   { transform: rotateZ(-58deg) rotateY(45deg)  translateZ(275px) scale(0.8); }
+#shape.gyro > .ten    { transform: rotateZ(-58deg) rotateY(135deg) translateZ(275px) scale(0.8); }
+#shape.gyro > .eleven { transform: rotateZ(-58deg) rotateY(225deg) translateZ(275px) scale(0.8); }
+#shape.gyro > .twelve { transform: rotateZ(-58deg) rotateY(315deg) translateZ(275px) scale(0.8); }
+
+/* --- STYLE 8: 3D SWEPT ANGEL WINGS (.wings) --- */
+#shape.wings > .plane {
+  border-color: #fff3b0;
+  box-shadow: 0 0 30px rgba(255, 209, 102, 0.65), 0 0 46px rgba(255, 112, 166, 0.48);
+}
+/* Left Swept Wing (6 feathers fanning outward, upward & sweeping in Z) */
+#shape.wings > .one    { transform: translate3d(-85px,   75px,  70px) rotateY(26deg)  rotateZ(-8deg)  scale(0.74); }
+#shape.wings > .two    { transform: translate3d(-155px,  25px,  35px) rotateY(28deg)  rotateZ(-15deg) scale(0.76); }
+#shape.wings > .three  { transform: translate3d(-225px, -35px,   0px) rotateY(30deg)  rotateZ(-22deg) scale(0.78); }
+#shape.wings > .four   { transform: translate3d(-290px, -105px, -40px) rotateY(32deg) rotateZ(-29deg) scale(0.80); }
+#shape.wings > .five   { transform: translate3d(-345px, -180px, -85px) rotateY(34deg) rotateZ(-36deg) scale(0.80); }
+#shape.wings > .six    { transform: translate3d(-175px,  125px, -35px) rotateY(24deg) rotateZ(-18deg) scale(0.70); }
+/* Right Swept Wing (Mirrored 6 feathers) */
+#shape.wings > .seven  { transform: translate3d(85px,    75px,  70px) rotateY(-26deg) rotateZ(8deg)   scale(0.74); }
+#shape.wings > .eight  { transform: translate3d(155px,   25px,  35px) rotateY(-28deg) rotateZ(15deg)  scale(0.76); }
+#shape.wings > .nine   { transform: translate3d(225px,  -35px,   0px) rotateY(-30deg) rotateZ(22deg)  scale(0.78); }
+#shape.wings > .ten    { transform: translate3d(290px, -105px, -40px) rotateY(-32deg) rotateZ(29deg)  scale(0.80); }
+#shape.wings > .eleven { transform: translate3d(345px, -180px, -85px) rotateY(-34deg) rotateZ(36deg)  scale(0.80); }
+#shape.wings > .twelve { transform: translate3d(175px,  125px, -35px) rotateY(-24deg) rotateZ(18deg)  scale(0.70); }
+
+/* --- STYLE 9 (CLIMAX BEFORE CARD): 3D SCULPTURAL HEART (.heart3d) --- */
+#shape.heart3d > .plane {
+  border-color: #ff4da6;
+  box-shadow: 0 0 32px rgba(255, 30, 102, 0.8), 0 0 54px rgba(255, 209, 102, 0.45);
+}
+#shape.heart3d > .one    { transform: translate3d(0px,   -95px,  40px) scale(0.68); }
+#shape.heart3d > .two    { transform: translate3d(-115px, -165px, -25px) rotateY(16deg)  rotateZ(-12deg) scale(0.70); }
+#shape.heart3d > .three  { transform: translate3d(-215px,  -90px,  30px) rotateY(22deg)  rotateZ(-20deg) scale(0.70); }
+#shape.heart3d > .four   { transform: translate3d(-200px,   30px, -30px) rotateY(18deg)  rotateZ(-12deg) scale(0.70); }
+#shape.heart3d > .five   { transform: translate3d(-115px,  135px,  35px) rotateY(12deg)  rotateZ(-6deg)  scale(0.70); }
+#shape.heart3d > .six    { transform: translate3d(0px,     220px,   0px) scale(0.72); }
+#shape.heart3d > .seven  { transform: translate3d(115px,   135px, -35px) rotateY(-12deg) rotateZ(6deg)   scale(0.70); }
+#shape.heart3d > .eight  { transform: translate3d(200px,    30px,  30px) rotateY(-18deg) rotateZ(12deg)  scale(0.70); }
+#shape.heart3d > .nine   { transform: translate3d(215px,   -90px, -30px) rotateY(-22deg) rotateZ(20deg)  scale(0.70); }
+#shape.heart3d > .ten    { transform: translate3d(115px,  -165px,  25px) rotateY(-16deg) rotateZ(12deg)  scale(0.70); }
+#shape.heart3d > .eleven { transform: translate3d(-52px,    10px, 105px) rotateY(10deg)  scale(0.64); }
+#shape.heart3d > .twelve { transform: translate3d(52px,     10px, -105px) rotateY(-10deg) scale(0.64); }
 
 /* ============================================================================
    MINIMAL SINGLE/DUAL CONTROL PILL

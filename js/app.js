@@ -2,16 +2,20 @@ import * as THREE from './three.module.min.js';
 
 const START_DATE_ISO = '2026-04-25T00:00:00+07:00';
 
-// 5 distinct 3D formations leading up to the Finale Card at the end
+// 9 distinct 3D formations (including 4 badass new geometric & sculptural transforms!)
 const FORMATIONS = [
-  { classes: ['cube'], zMobile: -80, zDesktop: 0 },
-  { classes: ['cube', 'expanded'], zMobile: -115, zDesktop: -25 },
-  { classes: ['ring'], zMobile: -430, zDesktop: -230 },
-  { classes: ['helix'], zMobile: -360, zDesktop: -200 },
-  { classes: ['crown'], zMobile: -390, zDesktop: -210 } // Final formation!
+  { classes: ['cube'], zDesktop: 0, mobileDiv: 480, motion: 'spin' },
+  { classes: ['cube', 'expanded'], zDesktop: -25, mobileDiv: 520, motion: 'spin' },
+  { classes: ['ring'], zDesktop: -230, mobileDiv: 680, motion: 'spin' },
+  { classes: ['dodeca'], zDesktop: -150, mobileDiv: 570, motion: 'tumble' },
+  { classes: ['helix'], zDesktop: -200, mobileDiv: 640, motion: 'spin' },
+  { classes: ['gyro'], zDesktop: -185, mobileDiv: 620, motion: 'tumble' },
+  { classes: ['crown'], zDesktop: -210, mobileDiv: 660, motion: 'spin' },
+  { classes: ['wings'], zDesktop: -195, mobileDiv: 730, motion: 'sway' },
+  { classes: ['heart3d'], zDesktop: -165, mobileDiv: 600, motion: 'sway' } // Final climax before Card!
 ];
 
-const AUTO_STEP_MS = 5000;
+const AUTO_STEP_MS = 4600;
 
 // ============================================================================
 // 1. BACKGROUND MP3 MUSIC PLAYER: Boy With Luv (Feat. Halsey)
@@ -487,29 +491,47 @@ updateDaysCounter();
 // Start MP3 playback (or unlock on very first touch/click if browser blocks initial autoplay)
 music.init();
 
+// Kinetic 3D Spin, Multi-Axis Tumble & Front-Facing Sway Physics
+let rotY = 0;
+let rotX = -6;
+let spinBoost = 0;
+let swayPhase = 0;
+let isDragging = false;
+let dragX = 0;
+let dragY = 0;
+
 // Responsive 3D stage transform so BOTH iPhone portrait & landscape fit cleanly without clipping
 function updateStageTransform() {
   const f = FORMATIONS[currentIdx];
   const w = window.innerWidth;
   const h = window.innerHeight;
-  const isWideFormation = f.classes.includes('ring') || f.classes.includes('crown') || f.classes.includes('helix');
   let scale = 1.0;
-  if (w < 520) {
-    scale = isWideFormation ? Math.max(0.52, w / 680) : Math.max(0.76, w / 480);
-  } else if (h < 460) {
-    scale = 0.68;
+  if (w < 540) {
+    scale = Math.min(1.0, Math.max(0.50, w / f.mobileDiv));
+  } else if (h < 480) {
+    scale = 0.66;
   }
-  const z = w < 520 ? f.zDesktop : f.zDesktop;
-  stageEl.style.transform = `translateZ(${z}px) scale3d(${scale.toFixed(3)}, ${scale.toFixed(3)}, ${scale.toFixed(3)})`;
+  stageEl.style.transform = `translateZ(${f.zDesktop}px) scale3d(${scale.toFixed(3)}, ${scale.toFixed(3)}, ${scale.toFixed(3)})`;
 }
 
-// Apply 3D Formation + Launch Fireworks!
+// Apply 3D Formation + Kinetic Spin Impulse + Fireworks!
 function applyFormation(index, withFireworks = true) {
   currentIdx = ((index % FORMATIONS.length) + FORMATIONS.length) % FORMATIONS.length;
   const f = FORMATIONS[currentIdx];
 
   shapeEl.className = ['backfaces', ...f.classes].join(' ');
   updateStageTransform();
+
+  // Add a badass kinetic spin whoosh during transition!
+  if (f.motion === 'sway') {
+    // Snap smoothly toward front-facing after a dramatic sweep so Wings & 3D Heart face the viewer
+    rotY = ((rotY % 360) + 360) % 360;
+    if (rotY > 180) rotY -= 360;
+    spinBoost = 0;
+    swayPhase = 0;
+  } else {
+    spinBoost = 4.2;
+  }
 
   if (withFireworks) {
     cosmos.launchSalvo();
@@ -613,16 +635,26 @@ finaleScene.addEventListener('click', (e) => {
   if (e.target === finaleScene) closeFinaleCard();
 });
 
-// Smooth 3D Continuous Spin + Finger Touch Rotation
-let rotY = 0;
-let rotX = -6;
-let isDragging = false;
-let dragX = 0;
-let dragY = 0;
-
 function spinTick() {
   if (!isDragging && !isCardOpen) {
-    rotY = (rotY + 0.42) % 360;
+    const f = FORMATIONS[currentIdx];
+    spinBoost *= 0.94;
+
+    if (f.motion === 'sway') {
+      swayPhase += 0.022;
+      const targetY = Math.sin(swayPhase) * 26;
+      const targetX = Math.cos(swayPhase * 0.7) * 7 - 3;
+      rotY += (targetY - rotY) * 0.06;
+      rotX += (targetX - rotX) * 0.06;
+    } else if (f.motion === 'tumble') {
+      swayPhase += 0.02;
+      rotY = (rotY + 0.58 + spinBoost) % 360;
+      const targetX = Math.sin(swayPhase) * 22;
+      rotX += (targetX - rotX) * 0.05;
+    } else {
+      rotY = (rotY + 0.44 + spinBoost) % 360;
+      rotX += (-6 - rotX) * 0.05;
+    }
   }
   shapeEl.style.transform = `rotateX(${rotX.toFixed(2)}deg) rotateY(${rotY.toFixed(2)}deg)`;
   requestAnimationFrame(spinTick);
