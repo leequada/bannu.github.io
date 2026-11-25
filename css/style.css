@@ -1,329 +1,590 @@
-
-/**
- * Quyết Nguyễn (Quyetdaik)
- * https://fb.com/nhquyet
- */
-
-
-body {
-      margin: 0;
-	  padding: 0;
-	  background-color: lightblue;
-    }
-
-    #container {
-      width: 100%;
-      -webkit-perspective: 1000;
-      -webkit-perspective-origin: 50% 620px;
-    }
-    #stage {
-      width: 100%;
-      height: 100%;
-      -webkit-transition: -webkit-transform 2s;
-      -webkit-transform-style: preserve-3d;
-    }
-    
-    #shape {
-      position: relative;
-      top: 200px;
-      margin: 0 auto;
-      height: 200px;
-      width: 200px;
-      -webkit-transform-style: preserve-3d;
-    }
-    
-    .plane {
-      position: absolute;
-      height: 200px;
-      width: 200px;
-      border: 1px solid white;
-      -webkit-border-radius: 12px;
-      -webkit-box-sizing: border-box;
-      text-align: center;
-      font-family: Times, serif;
-      font-size: 124pt;
-      color: black;
-      background-color: rgba(255, 255, 255, 0.6);
-      -webkit-transition: -webkit-transform 2s, opacity 2s;
-      -webkit-backface-visibility: hidden;
-    }
-
-    #shape.backfaces .plane {
-      -webkit-backface-visibility: visible;
-    }
-
-    #shape {
-      -webkit-animation: spin 8s infinite linear;
-    }
-
-    @-webkit-keyframes spin {
-      from { -webkit-transform: rotateY(0); }
-      to   { -webkit-transform: rotateY(360deg); }
-    }
-	
-    .one {
-		background-image: url(../img/a1.jpg);
-		background-size: 100% 100%;
-		background-repeat: no-repeat;
-    }
-
-    .two {
-		background-image: url(../img/a2.jpg);
-		background-size: 100% 100%;
-		background-repeat: no-repeat;
-    }
-
-    .three {
-		background-image: url(../img/a3.jpg);
-		background-size: 100% 100%;
-		background-repeat: no-repeat;
-    }
-
-    .four {
-		background-image: url(../img/a4.jpg);
-		background-size: 100% 100%;
-		background-repeat: no-repeat;
-    }
-
-    .five {
-		background-image: url(../img/a5.jpg);
-		background-size: 100% 100%;
-		background-repeat: no-repeat;
-    }
-
-    .six {
-		background-image: url(../img/a6.jpg);
-		background-size: 100% 100%;
-		background-repeat: no-repeat;
-    }
-
-    .seven {
-		background-image: url(../img/a7.jpg);
-		background-size: 100% 100%;
-		background-repeat: no-repeat;
-    }
-
-    .eight {
-		background-image: url(../img/a8.jpg);
-		background-size: 100% 100%;
-		background-repeat: no-repeat;
-    }
-
-    .nine {
-		background-image: url(../img/a9.jpg);
-		background-size: 100% 100%;
-		background-repeat: no-repeat;
-    }
-
-    .ten {
-		background-image: url(../img/a10.jpg);
-		background-size: 100% 100%;
-		background-repeat: no-repeat;
-    }
-
-    .eleven {
-		background-image: url(../img/a11.jpg);
-		background-size: 100% 100%;
-		background-repeat: no-repeat;
-    }
-
-    .twelve {
-		background-image: url(../img/a12.jpg);
-		background-size: 100% 100%;
-		background-repeat: no-repeat;
-    }
-
-    #shape.cube > .one {
-		opacity: 0.2;
-		-webkit-transform: scale3d(1.2, 1.2, 1.2) rotateX(90deg) translateZ(100px);
-    }
-
-    #shape.cube > .two {
-      opacity: 0.2;
-      -webkit-transform: scale3d(1.2, 1.2, 1.2) translateZ(100px);
-    }
-
-    #shape.cube > .three {
-      opacity: 0.2;
-      -webkit-transform: scale3d(1.2, 1.2, 1.2) rotateY(90deg) translateZ(100px);
-    }
-
-    #shape.cube > .four {
-      opacity: 0.2;
-      -webkit-transform: scale3d(1.2, 1.2, 1.2) rotateY(180deg) translateZ(100px);
-    }
-
-    #shape.cube > .five {
-      opacity: 0.2;
-      -webkit-transform: scale3d(1.2, 1.2, 1.2) rotateY(-90deg) translateZ(100px);
-    }
-
-    #shape.cube > .six {
-      opacity: 0.2;
-      -webkit-transform: scale3d(1.2, 1.2, 1.2) rotateX(-90deg) translateZ(100px) rotate(180deg);
-    }
-	
-	#shape:hover.cube > .one {
-		opacity: 0.9;
-		-webkit-transform: scale3d(1.5, 1.5, 1.5) rotateX(90deg) translateZ(130px);
-    }
-
-    #shape:hover.cube > .two {
-      opacity: 0.9;
-      -webkit-transform: scale3d(1.5, 1.5, 1.5) translateZ(150px);
-    }
-
-    #shape:hover.cube > .three {
-      opacity: 0.9;
-      -webkit-transform: scale3d(1.5, 1.5, 1.5) rotateY(90deg) translateZ(150px);
-    }
-
-    #shape:hover.cube > .four {
-      opacity: 0.9;
-      -webkit-transform: scale3d(1.5, 1.5, 1.5) rotateY(180deg) translateZ(150px);
-    }
-
-    #shape:hover.cube > .five {
-      opacity: 0.9;
-      -webkit-transform: scale3d(1.5, 1.5, 1.5) rotateY(-90deg) translateZ(150px);
-    }
-
-    #shape:hover.cube > .six {
-      opacity: 0.9;
-      -webkit-transform: scale3d(1.5, 1.5, 1.5) rotateX(-90deg) translateZ(130px) rotate(180deg);
-    }
-
-
-    #shape.cube > .seven {
-      -webkit-transform: scale3d(0.8, 0.8, 0.8) rotateX(90deg) translateZ(100px) rotate(180deg);
-    }
-
-    #shape.cube > .eight {
-      -webkit-transform: scale3d(0.8, 0.8, 0.8) translateZ(100px);
-    }
-
-    #shape.cube > .nine {
-      -webkit-transform: scale3d(0.8, 0.8, 0.8) rotateY(90deg) translateZ(100px);
-    }
-
-    #shape.cube > .ten {
-      -webkit-transform: scale3d(0.8, 0.8, 0.8) rotateY(180deg) translateZ(100px);
-    }
-
-    #shape.cube > .eleven {
-      -webkit-transform: scale3d(0.8, 0.8, 0.8) rotateY(-90deg) translateZ(100px);
-    }
-
-    #shape.cube > .twelve {
-      -webkit-transform: scale3d(0.8, 0.8, 0.8) rotateX(-90deg) translateZ(100px);
-    }
-
-    .ring > .one {
-      -webkit-transform: translateZ(380px);
-    }
-
-    .ring > .two {
-      -webkit-transform: rotateY(30deg) translateZ(380px);
-    }
-
-    .ring > .three {
-      -webkit-transform: rotateY(60deg) translateZ(380px);
-    }
-
-    .ring > .four {
-      -webkit-transform: rotateY(90deg) translateZ(380px);
-    }
-
-    .ring > .five {
-      -webkit-transform: rotateY(120deg) translateZ(380px);
-    }
-
-    .ring > .six {
-      -webkit-transform: rotateY(150deg) translateZ(380px);
-    }
-
-    .ring > .seven {
-      -webkit-transform: rotateY(180deg) translateZ(380px);
-    }
-
-    .ring > .eight {
-      -webkit-transform: rotateY(210deg) translateZ(380px);
-    }
-
-    .ring > .nine {
-      -webkit-transform: rotateY(-120deg) translateZ(380px);
-    }
-
-    .ring > .ten {
-      -webkit-transform: rotateY(-90deg) translateZ(380px);
-    }
-
-    .ring > .eleven {
-      -webkit-transform: rotateY(300deg) translateZ(380px);
-    }
-
-    .ring > .twelve {
-      -webkit-transform: rotateY(330deg) translateZ(380px);
-    }
-
-    .controls {
-      padding: 5px;
-    }
-	
-    .controls > div {
-      margin: 10px;
-    }
-	
-	.audio {
-      position: absolute;
-	  top: 15px;
-      left: 15px;
-      height: 30px;
-      width: 300px;
-    }
-
-/* CSS Button Đổi Kiểu */
-.classname {
-	-moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
-	-webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
-	box-shadow:inset 0px 1px 0px 0px #ffffff;
-	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ededed), color-stop(1, #dfdfdf) );
-	background:-moz-linear-gradient( center top, #ededed 5%, #dfdfdf 100% );
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#dfdfdf');
-	background-color:#ededed;
-	-webkit-border-top-left-radius:6px;
-	-moz-border-radius-topleft:6px;
-	border-top-left-radius:6px;
-	-webkit-border-top-right-radius:6px;
-	-moz-border-radius-topright:6px;
-	border-top-right-radius:6px;
-	-webkit-border-bottom-right-radius:6px;
-	-moz-border-radius-bottomright:6px;
-	border-bottom-right-radius:6px;
-	-webkit-border-bottom-left-radius:6px;
-	-moz-border-radius-bottomleft:6px;
-	border-bottom-left-radius:6px;
-	text-indent:0;
-	border:1px solid #dcdcdc;
-	display:inline-block;
-	color:#777777;
-	font-family:arial;
-	font-size:15px;
-	font-weight:bold;
-	font-style:normal;
-	height:50px;
-	line-height:50px;
-	width:100px;
-	text-decoration:none;
-	text-align:center;
-	text-shadow:1px 1px 0px #ffffff;
+:root {
+  --gold: #ffd166;
+  --pink: #ff2a85;
+  --rose: #ff70a6;
+  --cyan: #00f5d4;
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
 }
-.classname:hover {
-	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #dfdfdf), color-stop(1, #ededed) );
-	background:-moz-linear-gradient( center top, #dfdfdf 5%, #ededed 100% );
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#dfdfdf', endColorstr='#ededed');
-	background-color:#dfdfdf;
-}.classname:active {
-	position:relative;
-	top:1px;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  height: 100dvh;
+  overflow: hidden;
+  background-color: #070112;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: #fff;
+  user-select: none;
+  -webkit-user-select: none;
+  overscroll-behavior: none;
+}
+
+#cosmos-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.hidden {
+  display: none !important;
+}
+
+@keyframes shimmerFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes cardReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(36px) scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes stampSlam {
+  0% {
+    opacity: 0;
+    transform: scale(2.1) rotate(-18deg);
+  }
+  70% {
+    opacity: 1;
+    transform: scale(0.95) rotate(-6deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(-6deg);
+  }
+}
+
+/* Subtle glowing header text (no buttons) */
+.ambient-title {
+  position: fixed;
+  top: calc(var(--safe-top) + 14px);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 12;
+  pointer-events: none;
+  text-align: center;
+  width: calc(100% - 28px);
+}
+
+.ambient-main {
+  display: inline-block;
+  padding: 6px 16px;
+  border-radius: 999px;
+  background: rgba(20, 5, 42, 0.58);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 209, 102, 0.35);
+  font-size: 0.8rem;
+  font-weight: 800;
+  background-image: linear-gradient(90deg, #ffd166, #ff70a6, #00f5d4, #ffd166);
+  background-size: 240% 240%;
+  animation: shimmerFlow 5s ease infinite;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  box-shadow: 0 0 22px rgba(255, 42, 133, 0.28);
+  white-space: nowrap;
+}
+
+/* ============================================================================
+   3D STAGE & 12 CONFIGURED PHOTOS (a1.jpg -> a12.jpg)
+   ============================================================================ */
+#container {
+  position: fixed;
+  inset: 0;
+  z-index: 5;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1100px;
+  -webkit-perspective: 1100px;
+  perspective-origin: 50% 49%;
+  -webkit-perspective-origin: 50% 49%;
+  touch-action: none;
+}
+
+#stage {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  transition: transform 1.6s cubic-bezier(0.22, 1, 0.36, 1);
+  -webkit-transition: -webkit-transform 1.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+#shape {
+  position: relative;
+  width: 198px;
+  height: 198px;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+}
+
+.plane {
+  position: absolute;
+  width: 198px;
+  height: 198px;
+  border-radius: 18px;
+  -webkit-border-radius: 18px;
+  border: 2px solid rgba(255, 224, 140, 0.85);
+  background-color: rgba(30, 10, 56, 0.65);
+  background-size: cover !important;
+  background-position: center 20% !important;
+  background-repeat: no-repeat;
+  box-shadow:
+    0 0 24px rgba(255, 42, 133, 0.48),
+    0 0 38px rgba(0, 245, 212, 0.2),
+    inset 0 0 16px rgba(255, 255, 255, 0.28);
+  transition: transform 1.55s cubic-bezier(0.22, 1, 0.36, 1), opacity 1.3s ease;
+  -webkit-transition: -webkit-transform 1.55s cubic-bezier(0.22, 1, 0.36, 1), opacity 1.3s ease;
+  backface-visibility: visible;
+  -webkit-backface-visibility: visible;
+  overflow: hidden;
+}
+
+.plane::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.22) 0%, transparent 45%, rgba(255, 42, 133, 0.14) 100%);
+  pointer-events: none;
+}
+
+.one    { background-image: url(../img/a1.jpg); }
+.two    { background-image: url(../img/a2.jpg); }
+.three  { background-image: url(../img/a3.jpg); }
+.four   { background-image: url(../img/a4.jpg); }
+.five   { background-image: url(../img/a5.jpg); }
+.six    { background-image: url(../img/a6.jpg); }
+.seven  { background-image: url(../img/a7.jpg); }
+.eight  { background-image: url(../img/a8.jpg); }
+.nine   { background-image: url(../img/a9.jpg); }
+.ten    { background-image: url(../img/a10.jpg); }
+.eleven { background-image: url(../img/a11.jpg); }
+.twelve { background-image: url(../img/a12.jpg); }
+
+/* --- STYLE 1: NESTED DOUBLE CUBE (.cube) --- */
+#shape.cube > .one    { opacity: 0.35; transform: scale3d(1.22, 1.22, 1.22) rotateX(90deg) translateZ(99px); }
+#shape.cube > .two    { opacity: 0.35; transform: scale3d(1.22, 1.22, 1.22) translateZ(99px); }
+#shape.cube > .three  { opacity: 0.35; transform: scale3d(1.22, 1.22, 1.22) rotateY(90deg) translateZ(99px); }
+#shape.cube > .four   { opacity: 0.35; transform: scale3d(1.22, 1.22, 1.22) rotateY(180deg) translateZ(99px); }
+#shape.cube > .five   { opacity: 0.35; transform: scale3d(1.22, 1.22, 1.22) rotateY(-90deg) translateZ(99px); }
+#shape.cube > .six    { opacity: 0.35; transform: scale3d(1.22, 1.22, 1.22) rotateX(-90deg) translateZ(99px) rotate(180deg); }
+
+/* --- STYLE 2: BLOSSOM EXPANDED CUBE (.cube.expanded / hover) --- */
+#shape.cube:hover > .one,
+#shape.cube.expanded > .one    { opacity: 0.94; transform: scale3d(1.48, 1.48, 1.48) rotateX(90deg) translateZ(140px); }
+#shape.cube:hover > .two,
+#shape.cube.expanded > .two    { opacity: 0.94; transform: scale3d(1.48, 1.48, 1.48) translateZ(158px); }
+#shape.cube:hover > .three,
+#shape.cube.expanded > .three  { opacity: 0.94; transform: scale3d(1.48, 1.48, 1.48) rotateY(90deg) translateZ(158px); }
+#shape.cube:hover > .four,
+#shape.cube.expanded > .four   { opacity: 0.94; transform: scale3d(1.48, 1.48, 1.48) rotateY(180deg) translateZ(158px); }
+#shape.cube:hover > .five,
+#shape.cube.expanded > .five   { opacity: 0.94; transform: scale3d(1.48, 1.48, 1.48) rotateY(-90deg) translateZ(158px); }
+#shape.cube:hover > .six,
+#shape.cube.expanded > .six    { opacity: 0.94; transform: scale3d(1.48, 1.48, 1.48) rotateX(-90deg) translateZ(140px) rotate(180deg); }
+
+#shape.cube > .seven  { transform: scale3d(0.8, 0.8, 0.8) rotateX(90deg) translateZ(99px) rotate(180deg); }
+#shape.cube > .eight  { transform: scale3d(0.8, 0.8, 0.8) translateZ(99px); }
+#shape.cube > .nine   { transform: scale3d(0.8, 0.8, 0.8) rotateY(90deg) translateZ(99px); }
+#shape.cube > .ten    { transform: scale3d(0.8, 0.8, 0.8) rotateY(180deg) translateZ(99px); }
+#shape.cube > .eleven { transform: scale3d(0.8, 0.8, 0.8) rotateY(-90deg) translateZ(99px); }
+#shape.cube > .twelve { transform: scale3d(0.8, 0.8, 0.8) rotateX(-90deg) translateZ(99px); }
+
+/* --- STYLE 3: 360° 12-PHOTO RING (.ring) --- */
+#shape.ring > .one    { transform: rotateY(0deg) translateZ(385px); }
+#shape.ring > .two    { transform: rotateY(30deg) translateZ(385px); }
+#shape.ring > .three  { transform: rotateY(60deg) translateZ(385px); }
+#shape.ring > .four   { transform: rotateY(90deg) translateZ(385px); }
+#shape.ring > .five   { transform: rotateY(120deg) translateZ(385px); }
+#shape.ring > .six    { transform: rotateY(150deg) translateZ(385px); }
+#shape.ring > .seven  { transform: rotateY(180deg) translateZ(385px); }
+#shape.ring > .eight  { transform: rotateY(210deg) translateZ(385px); }
+#shape.ring > .nine   { transform: rotateY(240deg) translateZ(385px); }
+#shape.ring > .ten    { transform: rotateY(270deg) translateZ(385px); }
+#shape.ring > .eleven { transform: rotateY(300deg) translateZ(385px); }
+#shape.ring > .twelve { transform: rotateY(330deg) translateZ(385px); }
+
+/* --- STYLE 4: 3D ROMANTIC SPIRAL HELIX (.helix) --- */
+#shape.helix > .one    { transform: rotateY(0deg)   translateY(-220px) translateZ(250px) scale(0.84); }
+#shape.helix > .two    { transform: rotateY(42deg)  translateY(-180px) translateZ(250px) scale(0.84); }
+#shape.helix > .three  { transform: rotateY(84deg)  translateY(-140px) translateZ(250px) scale(0.84); }
+#shape.helix > .four   { transform: rotateY(126deg) translateY(-100px) translateZ(250px) scale(0.84); }
+#shape.helix > .five   { transform: rotateY(168deg) translateY(-60px)  translateZ(250px) scale(0.84); }
+#shape.helix > .six    { transform: rotateY(210deg) translateY(-20px)  translateZ(250px) scale(0.84); }
+#shape.helix > .seven  { transform: rotateY(252deg) translateY(20px)   translateZ(250px) scale(0.84); }
+#shape.helix > .eight  { transform: rotateY(294deg) translateY(60px)   translateZ(250px) scale(0.84); }
+#shape.helix > .nine   { transform: rotateY(336deg) translateY(100px)  translateZ(250px) scale(0.84); }
+#shape.helix > .ten    { transform: rotateY(378deg) translateY(140px)  translateZ(250px) scale(0.84); }
+#shape.helix > .eleven { transform: rotateY(420deg) translateY(180px)  translateZ(250px) scale(0.84); }
+#shape.helix > .twelve { transform: rotateY(462deg) translateY(220px)  translateZ(250px) scale(0.84); }
+
+/* --- STYLE 5 (FINAL): ROYAL DOUBLE CROWN (.crown) --- */
+#shape.crown > .one    { transform: rotateY(0deg)   translateY(-95px) translateZ(265px) rotateX(14deg) scale(0.88); }
+#shape.crown > .two    { transform: rotateY(60deg)  translateY(-95px) translateZ(265px) rotateX(14deg) scale(0.88); }
+#shape.crown > .three  { transform: rotateY(120deg) translateY(-95px) translateZ(265px) rotateX(14deg) scale(0.88); }
+#shape.crown > .four   { transform: rotateY(180deg) translateY(-95px) translateZ(265px) rotateX(14deg) scale(0.88); }
+#shape.crown > .five   { transform: rotateY(240deg) translateY(-95px) translateZ(265px) rotateX(14deg) scale(0.88); }
+#shape.crown > .six    { transform: rotateY(300deg) translateY(-95px) translateZ(265px) rotateX(14deg) scale(0.88); }
+#shape.crown > .seven  { transform: rotateY(30deg)  translateY(95px)  translateZ(265px) rotateX(-14deg) scale(0.88); }
+#shape.crown > .eight  { transform: rotateY(90deg)  translateY(95px)  translateZ(265px) rotateX(-14deg) scale(0.88); }
+#shape.crown > .nine   { transform: rotateY(150deg) translateY(95px)  translateZ(265px) rotateX(-14deg) scale(0.88); }
+#shape.crown > .ten    { transform: rotateY(210deg) translateY(95px)  translateZ(265px) rotateX(-14deg) scale(0.88); }
+#shape.crown > .eleven { transform: rotateY(270deg) translateY(95px)  translateZ(265px) rotateX(-14deg) scale(0.88); }
+#shape.crown > .twelve { transform: rotateY(330deg) translateY(95px)  translateZ(265px) rotateX(-14deg) scale(0.88); }
+
+/* ============================================================================
+   MINIMAL SINGLE/DUAL CONTROL PILL
+   ============================================================================ */
+.minimal-controls {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: calc(var(--safe-bottom) + 18px);
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ctrl-pill {
+  border: 1.5px solid rgba(255, 255, 255, 0.35);
+  border-radius: 999px;
+  padding: 10px 18px;
+  font-family: inherit;
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: #fff;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: transform 0.16s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+
+.ctrl-pill:active {
+  transform: scale(0.93);
+}
+
+.auto-toggle {
+  background: rgba(24, 7, 48, 0.72);
+  border-color: rgba(255, 209, 102, 0.45);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.4);
+}
+
+.shape-btn {
+  background: linear-gradient(95deg, #ff1e66, #9b5de5, #ff8500, #ff1e66);
+  background-size: 260% 260%;
+  animation: shimmerFlow 4s linear infinite;
+  border-color: rgba(255, 209, 102, 0.85);
+  box-shadow: 0 0 24px rgba(255, 42, 133, 0.65);
+}
+
+/* ============================================================================
+   AUTO-UNFOLDING 3D ENVELOPE & 7-MONTH ANNIVERSARY GREETING CARD
+   ============================================================================ */
+.finale-scene {
+  position: fixed;
+  inset: 0;
+  z-index: 42;
+  background: radial-gradient(circle at center, rgba(45, 8, 72, 0.74), rgba(7, 1, 18, 0.88));
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: calc(var(--safe-top) + 14px) 16px calc(var(--safe-bottom) + 16px);
+}
+
+.envelope-wrap {
+  perspective: 900px;
+}
+
+.envelope-box {
+  position: relative;
+  width: min(310px, 82vw);
+  height: 205px;
+  background: linear-gradient(145deg, #7a093c, #42063e);
+  border-radius: 16px;
+  border: 2px solid var(--gold);
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.65),
+    0 0 44px rgba(255, 42, 133, 0.65);
+  transform-style: preserve-3d;
+}
+
+.env-card-peek {
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  top: 16px;
+  height: 160px;
+  background: linear-gradient(180deg, #fff9f2, #ffe5f1);
+  border-radius: 12px;
+  border: 2px solid #eab308;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #7a093c;
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.55rem;
+  font-weight: 700;
+  transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.28s;
+  z-index: 2;
+}
+
+.peek-sub {
+  font-size: 0.95rem;
+  color: #b5175e;
+}
+
+.env-pocket {
+  position: absolute;
+  inset: 0;
+  border-radius: 14px;
+  background: linear-gradient(165deg, transparent 47%, #9d104e 48%, #590848 100%);
+  z-index: 3;
+}
+
+.env-flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 116px;
+  background: linear-gradient(180deg, #b5175e, #7a093c);
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  border-top: 2px solid var(--gold);
+  transform-origin: top center;
+  transition: transform 0.68s ease;
+  z-index: 4;
+}
+
+.wax-seal {
+  position: absolute;
+  left: 50%;
+  top: 54%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+  width: 66px;
+  height: 66px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #ffd166, #d90429 68%, #780000);
+  border: 2.5px solid #fff3b0;
+  box-shadow: 0 0 26px rgba(255, 209, 102, 0.95);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  font-size: 0.78rem;
+  color: #fff;
+  transition: transform 0.42s ease, opacity 0.42s ease;
+}
+
+.envelope-wrap.opened .env-flap {
+  transform: rotateX(180deg);
+  z-index: 1;
+}
+
+.envelope-wrap.opened .wax-seal {
+  transform: translate(-50%, -50%) scale(1.55);
+  opacity: 0;
+}
+
+.envelope-wrap.opened .env-card-peek {
+  transform: translateY(-98px);
+}
+
+/* Luxury 7-Month Anniversary Greeting Card */
+.anniversary-card {
+  position: relative;
+  width: 100%;
+  max-width: 410px;
+  max-height: 88dvh;
+  overflow-y: auto;
+  border-radius: 28px;
+  padding: 4px;
+  background: linear-gradient(125deg, #ffd166, #ff2a85, #00f5d4, #ffd166);
+  background-size: 280% 280%;
+  animation: cardReveal 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards, shimmerFlow 4.5s linear infinite;
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.75),
+    0 0 50px rgba(255, 42, 133, 0.6);
+  -webkit-overflow-scrolling: touch;
+}
+
+.card-inner {
+  position: relative;
+  background: linear-gradient(175deg, #24063d 0%, #37094c 52%, #1a042e 100%);
+  border-radius: 25px;
+  padding: 20px 18px 18px;
+  text-align: center;
+}
+
+.card-close-x {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.card-crest {
+  display: inline-block;
+  padding: 5px 13px;
+  border-radius: 999px;
+  background: rgba(255, 209, 102, 0.16);
+  border: 1px solid rgba(255, 209, 102, 0.65);
+  color: var(--gold);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  margin-bottom: 10px;
+}
+
+.card-polaroids {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 4px 0 12px;
+}
+
+.mini-pol {
+  width: 62px;
+  height: 74px;
+  background: #fff8fc;
+  padding: 4px 4px 12px;
+  border-radius: 8px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5);
+  margin: 0 -6px;
+}
+
+.mini-pol img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+  border-radius: 4px;
+}
+
+.mini-pol:nth-child(1) { transform: rotate(-10deg) translateY(4px); }
+.mini-pol:nth-child(2) { transform: rotate(-3deg) translateY(-2px); z-index: 2; }
+.mini-pol:nth-child(3) { transform: rotate(4deg) translateY(-2px); z-index: 2; }
+.mini-pol:nth-child(4) { transform: rotate(11deg) translateY(4px); }
+
+.card-headline {
+  font-family: 'Dancing Script', cursive;
+  font-size: clamp(1.9rem, 7.2vw, 2.35rem);
+  line-height: 1.18;
+  background: linear-gradient(90deg, #fff3b0, #ff70a6, #ffd166);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 6px;
+}
+
+.card-ribbon-count {
+  display: inline-block;
+  font-size: 0.76rem;
+  font-weight: 800;
+  color: #9bf6ff;
+  background: rgba(0, 245, 212, 0.12);
+  border: 1px solid rgba(0, 245, 212, 0.38);
+  padding: 4px 12px;
+  border-radius: 999px;
+  margin-bottom: 12px;
+}
+
+.card-message {
+  text-align: left;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 209, 102, 0.25);
+  border-radius: 18px;
+  padding: 14px 15px;
+  font-size: 0.85rem;
+  line-height: 1.58;
+  color: #f9edff;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.card-message strong {
+  color: var(--gold);
+}
+
+.card-sign {
+  margin-top: 8px;
+  text-align: right;
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.48rem;
+  color: var(--rose);
+}
+
+.love-stamp {
+  margin: 14px auto 2px;
+  display: inline-block;
+  border: 2px dashed #ffd166;
+  background: rgba(255, 30, 102, 0.24);
+  color: #ffd166;
+  padding: 6px 14px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+}
+
+.love-stamp.stamped {
+  animation: stampSlam 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.35s both;
+}
+
+@media (max-height: 500px) and (orientation: landscape) {
+  .anniversary-card {
+    max-width: 620px;
+    max-height: 92dvh;
+  }
+  .card-inner {
+    padding: 14px 18px;
+  }
+  .card-polaroids {
+    margin: 2px 0 8px;
+  }
+  .mini-pol {
+    width: 50px;
+    height: 60px;
+  }
 }

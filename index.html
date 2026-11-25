@@ -1,70 +1,34 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-   "http://www.w3.org/TR/html4/loose.dtd">
-
+<!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <!--
-  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-  <meta http-equiv="Pragma" content="no-cache" />
-  <meta http-equiv="Expires" content="0" />
-  -->
-  <title>Nhớ bao tao đi ăn</title>
+  <meta charset="utf-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
+  />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="theme-color" content="#070112" />
+  <title>💖 Gửi Ánh • Chúc Mừng Kỉ Niệm 7 Tháng Yêu Nhau ✨</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Plus+Jakarta+Sans:wght@500;600;700;800;900&display=swap"
+    rel="stylesheet"
+  />
   <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" />
-
-  <script type="text/javascript" charset="utf-8">
-    function hasClassName(inElement, inClassName)
-    {
-        var regExp = new RegExp('(?:^|\\s+)' + inClassName + '(?:\\s+|$)');
-        return regExp.test(inElement.className);
-    }
-
-    function addClassName(inElement, inClassName)
-    {
-        if (!hasClassName(inElement, inClassName))
-            inElement.className = [inElement.className, inClassName].join(' ');
-    }
-
-    function removeClassName(inElement, inClassName)
-    {
-        if (hasClassName(inElement, inClassName)) {
-            var regExp = new RegExp('(?:^|\\s+)' + inClassName + '(?:\\s+|$)', 'g');
-            var curClasses = inElement.className;
-            inElement.className = curClasses.replace(regExp, ' ');
-        }
-    }
-
-    function toggleClassName(inElement, inClassName)
-    {
-        if (hasClassName(inElement, inClassName))
-            removeClassName(inElement, inClassName);
-        else
-            addClassName(inElement, inClassName);
-    }
-
-    function toggleShape()
-    {
-      var shape = document.getElementById('shape');
-      if (hasClassName(shape, 'ring')) {
-        removeClassName(shape, 'ring');
-        addClassName(shape, 'cube');
-      } else {
-        removeClassName(shape, 'cube');
-        addClassName(shape, 'ring');
-      }
-      
-      var stage = document.getElementById('stage');
-      if (hasClassName(shape, 'ring'))
-        stage.style.webkitTransform = 'translateZ(-200px)';
-      else
-        stage.style.webkitTransform = '';
-    }
-  </script>
 </head>
 <body>
+  <!-- Three.js Cosmic Aurora, Stardust, 3D Hearts & Fireworks Canvas -->
+  <canvas id="cosmos-canvas"></canvas>
 
-  <div style="text-align: right;padding: 15px;"><a href="#" class="classname" onclick="toggleShape()">Đổi kiểu</a></div>
-  
+  <!-- Subtle non-interactive floating romantic header -->
+  <div class="ambient-title" aria-hidden="true">
+    <div class="ambient-main">💖 Happy 7 Months Anniversary • Ánh Yêu ✨</div>
+  </div>
+
+  <!-- Core 3D Stage with 12 Configured Photos (a1.jpg -> a12.jpg) -->
   <div id="container">
     <div id="stage">
       <div id="shape" class="cube backfaces">
@@ -84,5 +48,77 @@
     </div>
   </div>
 
+  <!-- Minimal Floating Control Bar: Default auto OFF ("▶ Tự động" + "✨ Đổi kiểu" visible) -->
+  <div id="minimal-controls" class="minimal-controls">
+    <button id="btn-toggle-auto" class="ctrl-pill auto-toggle" type="button">
+      ▶ Tự động
+    </button>
+    <button id="btn-change-shape" class="ctrl-pill shape-btn" type="button">
+      ✨ Đổi kiểu
+    </button>
+  </div>
+
+  <!-- GRAND FINALE AT THE END: Auto-Unfolding 3D Envelope -> 7-Month Anniversary Greeting Card -->
+  <section id="finale-scene" class="finale-scene hidden" role="dialog" aria-modal="true">
+    <!-- Part A: 3D Royal Velvet Envelope (auto-opens smoothly into the card) -->
+    <div id="envelope-wrap" class="envelope-wrap">
+      <div class="envelope-box">
+        <div class="env-card-peek">
+          <span>💖 Gửi Ánh Yêu 💖</span>
+          <span class="peek-sub">Happy 7 Months ✨</span>
+        </div>
+        <div class="env-pocket"></div>
+        <div class="env-flap"></div>
+        <div class="wax-seal">
+          <span>7M</span>
+          <span>❤️</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Part B: Luxury 7-Month Anniversary Greeting Card -->
+    <article id="anniversary-card" class="anniversary-card hidden">
+      <div class="card-inner">
+        <button id="btn-close-finale" class="card-close-x" aria-label="Đóng thiệp">✕</button>
+
+        <div class="card-crest">✨ HAPPY 7 MONTHS ANNIVERSARY ✨</div>
+
+        <!-- Mini Polaroid Collage Strip -->
+        <div class="card-polaroids">
+          <div class="mini-pol"><img src="img/a1.jpg" alt="Ánh 1" /></div>
+          <div class="mini-pol"><img src="img/a2.jpg" alt="Ánh 2" /></div>
+          <div class="mini-pol"><img src="img/a3.jpg" alt="Ánh 3" /></div>
+          <div class="mini-pol"><img src="img/a6.jpg" alt="Ánh 6" /></div>
+        </div>
+
+        <h2 class="card-headline">Chúc Mừng Kỉ Niệm 7 Tháng Yêu Nhau!</h2>
+        <div id="card-love-counter" class="card-ribbon-count">
+          💖 Tròn 7 Tháng • 214 Ngày Hạnh Phúc Bên Ánh 💖
+        </div>
+
+        <div class="card-message">
+          <p>
+            Gửi <strong>Ánh</strong> — cô công chúa xinh đẹp và ngọt ngào nhất của anh,
+          </p>
+          <p>
+            Vậy là tụi mình đã nắm tay nhau đi qua tròn <strong>7 tháng yêu thương</strong> rồi đó! Ngắm nhìn lại từng khoảnh khắc của em — từ nụ cười trong veo dưới hoa anh đào, nắng vàng Hội An, biển xanh rực rỡ, ngọn núi tuyết trắng cho đến những nét dịu dàng đáng yêu mỗi ngày — anh nhận ra từng phút giây có Ánh trong đời đều lộng lẫy như một phép màu.
+          </p>
+          <p>
+            Cảm ơn em đã đến bên anh, luôn ngọt ngào và làm thế giới của anh ngập tràn sắc màu suốt 214 ngày qua. Chúc em yêu một ngày <strong>kỉ niệm 7 tháng thật ấm áp, trọn vẹn và ngập tràn niềm vui</strong>. Hãy luôn nắm chặt tay anh cùng viết tiếp thật nhiều tháng, thật nhiều năm hạnh phúc phía trước nữa nha!
+          </p>
+          <div class="card-sign">Mãi yêu và thương Ánh nhiều nhất 💕✨</div>
+        </div>
+
+        <div class="love-stamp stamped">
+          💍 7 THÁNG &amp; MÃI MÃI BÊN ÁNH ❤️
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <!-- Background Music: Boy With Luv (Feat. Halsey) -->
+  <audio id="bgm-player" src="audio/bgm.mp3" loop preload="auto" playsinline></audio>
+
+  <script type="module" src="js/app.js"></script>
 </body>
 </html>
